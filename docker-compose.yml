@@ -1,0 +1,27 @@
+version: "3"
+services:
+  app:
+    image: user-app-img:latest
+    container_name: user-app-con
+    build: /.
+    ports:
+      - "8080:8080"
+#    depends_on:
+#      - postgresdb
+    restart: always
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://192.168.41.134:5432/UserTest?useSSL=true&serverTimezone=UTC&useLegacyDatetimeCode=false
+      - SPRING_DATASOURCE_USERNAME=postgres
+#      - SPRING_DATASOURCE_PASSWORD=123456
+      - SPRING_DATASOURCE_PASSWORD=Developer@2016
+#  postgresdb:
+#    image: postgres:15
+#    ports:
+#      - "5432:5432"
+#    volumes:
+#      - ./pgdata:/var/lib/postgresql/data
+#    environment:
+#      - POSTGRES_USER=postgres
+#      - POSTGRES_PASSWORD=123456
+#      - POSTGRES_DB=eShop
+
